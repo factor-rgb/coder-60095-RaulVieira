@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betty's Restaurant</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    {% block header %}
+    <header>
+        <h1>Restaurante de Betty</h1>
+    </header>
+    {% endblock header %}
+    {% block footer %}
+    <footer>
+        <p>Libre de Copyrigt</p>
+        <table>
+            <ul>
+                
+            </ul>
+        </table>
+    </footer>
+    {% endblock footer %}
+</body>
+</html>

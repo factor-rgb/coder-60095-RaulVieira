@@ -7,6 +7,4 @@ Profesor: Esteban Acevedo
 Linkedin: linkedin.com/in/esteban-acevedo-aberastain
 
 Alumno
-Nombre:
-
-Linkedin
+Nombre:Raul Vieira
