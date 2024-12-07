@@ -12,6 +12,10 @@
     {% block header %}
     <header>
         <h1>Restaurante de Betty</h1>
+        <a href="{% url 'core:index' %}"><button>Inicio</button></a>
+        <a href="{% url 'core:pedido' %}"><button>Hacer Pedido</button></a>
+        <a href="{% url 'core:reservacion' %}"><button>Hacer Reservacion</button></a>
+        <a href="{% url 'core:sugerencia' %}"><button>Hacer Sugerencia</button></a>
     </header>
     {% endblock header %}
     {% block content %}

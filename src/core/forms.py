@@ -1,7 +1,6 @@
 from django import forms
 
-from .models import Sugerencias_Comidas, Reservaciones, Pedidos
-
+from .models import Pedidos, Reservaciones, Sugerencias_Comidas
 
 
 class Suerencias_ComidasForm(forms.ModelForm):
@@ -14,7 +13,8 @@ class ReservacionesForm(forms.ModelForm):
     class Meta:
         model = Reservaciones
         fields = "__all__"
-        widget = {"reservacion_fecha": forms.DateInput(attrs={"type": "date"})}
+        widgets = {'reservacion_fecha': forms.DateInput(attrs={"type": "date"})}
+
 
 class PedidosForm(forms.ModelForm):
     class Meta:

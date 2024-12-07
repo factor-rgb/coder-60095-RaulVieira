@@ -1,5 +1,7 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1>La Informacion a sido Enviada con Exito</h1>
+    <h1 style="text-align: center;">✅La Informacion a sido Enviada con Exito✅</h1>
+    <img style="text-align: center;" src="{% static 'afirmativo.png' %}" alt="" height="300px">
 {% endblock content %}

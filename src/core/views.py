@@ -32,7 +32,7 @@ def reservacion_create(request):
             form = ReservacionesForm(request.POST)
             if form.is_valid():
                   form.save()
-                  return redirect("core: confirmacion")
+                  return redirect("core:confirmacion")
       return render(request,"core/reservacion_form.html", {"form": form})
 
 
