@@ -1,6 +1,6 @@
 from django.shortcuts import redirect,render
 
-from .models import Categorias_Comidas
+from .models import Categorias_Comidas, Menu
 from .forms import PedidosForm, ReservacionesForm, Suerencias_ComidasForm
 
 
@@ -45,3 +45,9 @@ def sugerencia_create(request):
                   form.save()
                   return redirect("core:confirmacion")
       return render(request,"core/sugerencia_form.html", {"form": form})
+
+
+def menu(request):
+      query = Menu.objects.all()
+      context = {"especialidades": query}
+      return render(request, "core/menu.html", context)

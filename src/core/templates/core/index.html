@@ -5,6 +5,12 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <div>
         <h1>Bienvenido al Restarurante de Betty</h1>
-        <h2>somos un restaurante con años de antiguedad y nos especializamos en preparar</h2>
+        <h2>Puedes ver Nuestro Menu en el Boton de abajo</h2>
+        <a href="{% url 'core:menu' %}"><button>Menu</button></a>
+        <h2>Somos un Restaurante Con años de Antiguedad y nos Especializamos en Preparar</h2>
+    
+    {% for categoria in especialidades %}
+        <p>{{categoria}}</p>
+    {% endfor %}
     </div>
 {% endblock content %}
