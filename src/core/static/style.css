@@ -3,6 +3,21 @@ body {
     text-align: center;
 }
 
+button {
+    margin-right: 30px;
+    font-size: large;
+    cursor: pointer;
+    padding: 10px 30px;
+    border-radius: 28px;
+    background-color: aqua;
+    color: black;
+}
+
+button:hover {
+    background-color: darkblue;
+    color: white;
+}
+
 header {
     background-image: url(Clouds.jpg);
     background-size: cover;
@@ -11,16 +26,46 @@ header {
 }
 
 header h1 {
+    cursor: default;
     font-size: 4rem;
 }
 
 footer {
-    font-size: 1rem;
+    margin-top: 20px;
+    height: 175px;
+    font-size: 20px;
     background-color: darkslategray;
     color: white;
 }
 
 footer p {
-    margin-top: 0.5rem;
+    float: left;
+    text-align: right;
+    margin-top: 75px;
+    margin-left: 1rem;
+}
+
+footer ul {
+    margin-top: 0px;
+    margin-right: 10px;
     float: right;
+    list-style: none;
+}
+
+form input {
+    padding: 10px;
+    border-style: ridge;
+    border-color: cyan;
+}
+
+form label {
+    padding-right: 2px;
+    font-size: 25px;
+}
+
+select {
+    cursor: pointer;
+    padding: 10px;
+    border-color: cyan;
+    border-radius: 20px;
 }

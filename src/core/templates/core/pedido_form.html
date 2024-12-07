@@ -1,6 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+    <h1>Ingrese Nombre del Comprador, Direccion y que Desea Ordenar</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

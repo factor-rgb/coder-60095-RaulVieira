@@ -1,6 +1,8 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+    <h1>¿Tienes alguna comida que te gustaria ver en el menu?</h1>
+    <h3>Dinos que Platillo te Gustaria ver y Cual es su Categoria</h3>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

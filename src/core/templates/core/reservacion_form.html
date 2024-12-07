@@ -1,6 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+    <h1>Ingrese a Nombre de Quien es la Reservacion y la fecha de Esta</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
