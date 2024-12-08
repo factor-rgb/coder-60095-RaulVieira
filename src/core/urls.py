@@ -10,5 +10,5 @@ urlpatterns = [
     path("betty's/pedido/", views.pedido_create, name="pedido"),
     path("betty's/reservacion/", views.reservacion_create, name="reservacion"),
     path("betty's/sugerencia/", views.sugerencia_create, name="sugerencia"),
-    path("bettr's/menu/", views.menu, name="menu")
+    path("betty's/menu/", views.menu, name="menu")
 ]

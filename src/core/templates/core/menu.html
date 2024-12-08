@@ -1,11 +1,11 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-<h1>Estas son Todas las Comidas que Tenemos por el Momento</h1>
-<br>
-{% for platillo in especialidades %}
 <div>
-    <p>{{platillo}}</p>
+    <h1>Estas son Todas las Comidas y Bebidas que Tenemos por el Momento</h1>
+    <br>
+    {% for comida in especialidades %}
+        <p>{{comida.platillo}}</p>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock content %}
