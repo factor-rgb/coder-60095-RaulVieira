@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Pedidos, Reservaciones, Sugerencias_Comidas
+from .models import Pedidos, Reservaciones, Sugerencias_Comidas, Menu
 
 
 class Suerencias_ComidasForm(forms.ModelForm):
@@ -19,4 +19,9 @@ class ReservacionesForm(forms.ModelForm):
 class PedidosForm(forms.ModelForm):
     class Meta:
         model = Pedidos
+        fields = "__all__"
+
+class MenuForm(forms.ModelForm):
+    class Meta:
+        model = Menu
         fields = "__all__"

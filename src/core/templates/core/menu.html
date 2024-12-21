@@ -1,11 +1,40 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-<div>
-    <h1>Estas son Todas las Comidas y Bebidas que Tenemos por el Momento</h1>
+    <h1>Menu</h1>
+    <h2>Estas son Todas las Comidas y Bebidas que Tenemos por el Momento</h2>
+    <form method="get">
+        <input type="text" name="busqueda" placeholder="Buscar Platillo">
+    </form>
     <br>
-    {% for comida in especialidades %}
-        <p>{{comida.platillo}}</p>
-    {% endfor %}
-</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Platillo</th>
+                <th>Opciones para Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for menu in object_list %}
+                <tr>
+                    <td>{{ menu.platillo }}</td>
+                    <td>
+                        <a href="{% url 'core:menu_completo' menu.id %}">
+                            <button>Ver a detalle</button></a>
+                        <a href="{% url 'core:actualizar_platillo' menu.id %}">
+                            <button>Editar</button></a>
+                        <a href="{% url 'core:eliminar_platillo' menu.id %}">
+                            <button>Eliminar</button></a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td>No se han Encontrado Resultados</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'core:agregar_platillo' %}">
+        <button>Añadir un Nuevo Platillo</button></a>
 {% endblock content %}
