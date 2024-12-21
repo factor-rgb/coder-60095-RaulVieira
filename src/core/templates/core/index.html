@@ -2,6 +2,9 @@
 
 {% block content %}
     <div>
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
         <h1>Bienvenido al Restarurante de Betty</h1>
         <h2>Puedes ver Nuestro Menu en el Boton de abajo</h2>
         <a href="{% url 'core:menu' %}"><button>Menu</button></a>

@@ -13,6 +13,15 @@
     <header>
         <h1>Restaurante de Betty</h1>
         <a href="{% url 'core:index' %}"><button>Inicio</button></a>
+        {% if user.is_authenticated %}
+            <form action="{% url 'core:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Cerrar Sesion</button>
+            </form>
+            <a href="{% url 'core:profile' %}"><button>Editar Perfil</button></a>
+        {% else %}
+            <a href="{% url 'core:login' %}"><button>Iniciar Sesion</button></a>
+        {% endif %}
         <a href="{% url 'core:pedido' %}"><button>Hacer Pedido</button></a>
         <a href="{% url 'core:reservacion' %}"><button>Hacer Reservacion</button></a>
         <a href="{% url 'core:sugerencia' %}"><button>Hacer Sugerencia</button></a>

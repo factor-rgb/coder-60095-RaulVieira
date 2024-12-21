@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1>Inicio de sesion</h1>
+    <h3>Ingrese sus Datos para Continuar</h3>
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {% endfor %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <button type="submit">Iniciar Sesion</button>
+    </form>
+    <p>
+        ¿No Tienes una Cuenta? <a href="{% url 'core:register' %}">Registrate Aqui</a>
+    </p>
+{% endblock content %}

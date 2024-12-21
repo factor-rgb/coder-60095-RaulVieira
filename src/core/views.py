@@ -1,8 +1,16 @@
 from django.shortcuts import redirect,render
 
-from django.http import HttpRequest, HttpResponse
+from .forms import PedidosForm, ReservacionesForm, Suerencias_ComidasForm, MenuForm, CustomAuthenticationForm, CustomUserCreationForm,UserProfileForm
 from .models import Categorias_Comidas, Menu
-from .forms import PedidosForm, ReservacionesForm, Suerencias_ComidasForm, MenuForm
+
+from django.http import HttpRequest, HttpResponse
+from django.views.generic import CreateView, UpdateView
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
+from django.forms import BaseModelForm
+from django.urls import reverse_lazy
 
 
 def index(request):
@@ -91,3 +99,36 @@ def eliminar_platillo(request: HttpRequest, pk: int) -> HttpResponse:
         query.delete()
         return redirect('core:menu')
     return render(request, 'core/eliminar_platillo.html', {'object': query})
+
+
+class CustomLoginView(LoginView):
+    authentication_form = CustomAuthenticationForm
+    template_name = 'core/login.html'
+    next_page = reverse_lazy('core:index')
+
+    def form_valid(self, form: AuthenticationForm) -> HttpResponse:
+        usuario = form.get_user()
+        messages.success(
+            self.request, f'Inicio de sesión exitoso ¡Bienvenido {usuario.username}!'
+        )
+        return super().form_valid(form)
+
+
+class CustomRegisterView(CreateView):
+    form_class = CustomUserCreationForm
+    template_name = 'core/register.html'
+    success_url = reverse_lazy('core:login')
+
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        messages.success(self.request, 'Usuario Registrado con Exito')
+        return super().form_valid(form)
+
+
+class UpdateProfileView(UpdateView):
+    model = User
+    form_class = UserProfileForm
+    template_name = 'core/profile.html'
+    success_url = reverse_lazy('core:confirmacion')
+
+    def get_object(self):
+        return self.request.user
