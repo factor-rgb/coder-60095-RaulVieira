@@ -19,4 +19,5 @@ urlpatterns = [
     path("betty's/logout/", LogoutView.as_view(template_name="core/logout.html"), name="logout"),
     path("betty's/register/", views.CustomRegisterView.as_view(), name="register"),
     path("betty's/profile/", views.UpdateProfileView.as_view(), name='profile'),
+    path("betty's/about/", views.about, name='about'),
 ]
