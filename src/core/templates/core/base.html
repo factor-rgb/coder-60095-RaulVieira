@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Betty's Restaurant</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" />
 </head>
 <body>
     {% block header %}
@@ -31,10 +32,11 @@
     {% endblock content %}
     {% block footer %}
     <footer>
-        <p>Libre de Copyright</p>
-        <p>Pagina Hecha en 22/12/2024</p>
-        <p>Hecha por</p>
-        <p><a href="{% url 'core:about' %}">Acerca de Mi</a></p>
+        <ul id="datos">
+            <li>Libre de Copyright</p>
+            <li>Pagina Hecha en 22/12/2024</p>
+            <li>Hecha por <a href="{% url 'core:about' %}">Acerca de Mi</a></p>
+        </ul>
         <ul>
             <h4>Cosas a tener en cuenta</h4>
             <li>Pagina en Desarrolo</li>

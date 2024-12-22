@@ -1,11 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-    {% if form.instance.pk %}
-        <h1>Editar Platillos del Menu</h1>
-    {% else %}
-        <h1>Agregar Platillos al Menu</h1>
-    {% endif %}
+    <h1>Agregar/Editar Platillo</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

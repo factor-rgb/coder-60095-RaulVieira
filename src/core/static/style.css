@@ -4,7 +4,7 @@ body {
 }
 
 button {
-    margin-right: 30px;
+    margin-right: 0px;
     font-size: large;
     cursor: pointer;
     padding: 10px 30px;
@@ -19,7 +19,7 @@ button:hover {
 }
 
 header {
-    background-image: url(Clouds.jpg);
+    background-image: url(mesa.webp);
     background-size: cover;
     color: gold;
     padding: 2rem 1rem;
@@ -72,4 +72,28 @@ select {
 
 div p {
     font-size: 35px;
+}
+
+table {
+    margin: 0 auto;
+}
+
+table th {
+    font-size: 1.5rem;
+}
+
+table th, td {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: blue;
+}
+
+table td {
+    font-size: 1.5rem;
+}
+
+#datos {
+    float: left;
+    margin-top: 47px;
+    list-style: none;
 }
