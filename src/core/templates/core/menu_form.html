@@ -6,7 +6,7 @@
     {% else %}
         <h1>Agregar Platillos al Menu</h1>
     {% endif %}
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Aceptar</button>
