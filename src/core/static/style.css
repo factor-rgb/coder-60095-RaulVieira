@@ -58,6 +58,10 @@ form input {
     border-color: cyan;
 }
 
+form ul {
+    list-style: none;
+}
+
 form label {
     padding-right: 2px;
     font-size: 25px;

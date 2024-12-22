@@ -18,3 +18,5 @@
 ## Aspectos tecnicos
 
 he creado esta pagina con djanco y un poco de css, tiene 5 modelos 3 de ellos con formularios, en el index se ven las categorias de comidas registradas y tiene un menu que muestra los platillos registrados
+tiene un sistema de usuarios que al ingresar permite editar los datos del model menu
+se puede modificar el perfil y el model menu tiene imagenes almacenadas
