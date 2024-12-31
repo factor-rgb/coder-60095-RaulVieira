@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .forms import PedidosForm, ReservacionesForm, Suerencias_ComidasForm, MenuForm, CustomAuthenticationForm, CustomUserCreationForm,UserProfileForm
-from .models import Categorias_Comidas, Menu, Pedidos, Reservaciones, Sugerencias_Comidas
+from .models import CategoriasComidas, Menu, Pedidos, Reservaciones, SugerenciasComidas
 
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView, ListView
 from django.contrib.auth.forms import AuthenticationForm
@@ -13,7 +13,7 @@ from django.urls import reverse_lazy
 
 
 def index(request):
-      query = Categorias_Comidas.objects.all()
+      query = CategoriasComidas.objects.all()
       context = {"especialidades": query}
       return render(request, "core/index.html", context)
 
@@ -39,7 +39,7 @@ class ReservacionCreateView(CreateView):
 
 
 class SugerenciaCreateView(CreateView):
-    model = Sugerencias_Comidas
+    model = SugerenciasComidas
     form_class = Suerencias_ComidasForm
     success_url = reverse_lazy('core:confirmacion')
 

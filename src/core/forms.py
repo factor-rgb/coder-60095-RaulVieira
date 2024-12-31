@@ -1,7 +1,7 @@
 from django import forms
 
 
-from .models import Pedidos, Reservaciones, Sugerencias_Comidas, Menu
+from .models import Pedidos, Reservaciones, SugerenciasComidas, Menu
 
 
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 
 class Suerencias_ComidasForm(forms.ModelForm):
     class Meta:
-        model = Sugerencias_Comidas
+        model = SugerenciasComidas
         fields = "__all__"
 
 

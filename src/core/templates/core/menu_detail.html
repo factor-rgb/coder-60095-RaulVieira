@@ -3,13 +3,14 @@
 {% block content %}
     <h1>Datos del Platillo</h1>
     <br>
-    <h3>Nombre: {{ object.platillo }} </h3>
-    <h3>Categoria: {{ object.categoria_Comida }} </h3>
+    <h3>Nombre: {{ object.platillo }}</h3>
+    <h3>Categoria: {{ object.categoria_comida }}</h3>
+    <h3>Precio: {{ object.precio }}</h3>
     {% if object.imagen %}
     <img src="{{ object.imagen.url }}" height="300px">
     <br>
     {% else %}
-        <p>Sin imagen</p>
+        <p>Sin Imagen</p>
     {% endif %}
     <br>
     <a href="{% url 'core:menu' %}"><button>Volver</button></a>
