@@ -2,12 +2,61 @@
 
 {% block content %}
     <h1>Menu</h1>
-    <h2>Estas son Todas las Comidas y Bebidas que Tenemos por el Momento</h2>
-    <form method="get">
-        <input type="text" name="busqueda" placeholder="Buscar Platillo">
-        <button type="submit">Buscar</button>
-    </form>
     <br>
+    <h1>Especial</h1>
+    {% for menu in object_list %}
+            {% if menu.categoria_comida.id == 4 %}
+            <h2>{{ menu.platillo }}</h2>
+            <img src="{{ menu.imagen.url }}" height="100px">
+            <br>
+        {% endif %}
+    {% endfor %}
+    <hr>
+    <h1>Sopa</h1>
+    {% for menu in object_list %}
+        {% if menu.categoria_comida.id == 1 %}
+            <h2>{{ menu.platillo }}</h2>
+            <img src="{{ menu.imagen.url }}" height="100px">
+            <br>
+        {% endif %}
+    {% endfor %}
+    <hr>
+    <h1>Principales</h1>
+    {% for menu in object_list %}
+        {% if menu.categoria_comida.id == 5 %}
+            <h2>{{ menu.platillo }}</h2>
+            <img src="{{ menu.imagen.url }}" height="100px">
+            <br>
+        {% endif %}
+    {% endfor %}
+        <hr>
+    <h1>Carnes</h1>
+        {% for menu in object_list %}
+            {% if menu.categoria_comida.id == 3 %}
+                <h2>{{ menu.platillo }}</h2>
+                <img src="{{ menu.imagen.url }}" height="100px">
+                <br>
+            {% endif %}
+        {% endfor %}
+    <hr>
+    <h1>Acompañantes</h1>
+        {% for menu in object_list %}
+            {% if menu.categoria_comida.id == 0 %}
+                <h2>{{ menu.platillo }}</h2>
+                <img src="{{ menu.imagen.url }}" height="100px">
+                <br>
+            {% endif %}
+        {% endfor %}
+    <hr>
+    <h1>Bebidas</h1>
+        {% for menu in object_list %}
+            {% if menu.categoria_comida.id == 2 %}
+                <h2>{{ menu.platillo }}</h2>
+                <img src="{{ menu.imagen.url }}" height="100px">
+                <br>
+            {% endif %}
+        {% endfor %}
+    <hr>
     <table>
         <thead>
             <tr>
@@ -36,10 +85,10 @@
                     </td>
                 {% endif %}
                 </tr>
-            {% empty %}
-                <tr>
-                    <td>No se han Encontrado Resultados</td>
-                </tr>
+                {% empty %}
+                    <tr>
+                        <td>No se han Encontrado Resultados</td>
+                    </tr>
             {% endfor %}
         </tbody>
     </table>

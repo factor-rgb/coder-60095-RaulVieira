@@ -38,7 +38,7 @@ class ReservacionCreateView(CreateView):
     success_url = reverse_lazy('core:confirmacion')
 
 
-class SugerenciaCreateView(CreateView):
+class SugerenciaComidasCreateView(CreateView):
     model = SugerenciasComidas
     form_class = Suerencias_ComidasForm
     success_url = reverse_lazy('core:confirmacion')
