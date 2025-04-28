@@ -3,34 +3,35 @@
 {% block content %}
     <h1>Menu</h1>
     <br>
-    <h1>Especial</h1>
-    {% for menu in object_list %}
-            {% if menu.categoria_comida.id == 4 %}
-            <h2>{{ menu.platillo }}</h2>
-            <img src="{{ menu.imagen.url }}" height="100px">
-            <br>
-        {% endif %}
-    {% endfor %}
-    <hr>
-    <h1>Sopa</h1>
-    {% for menu in object_list %}
-        {% if menu.categoria_comida.id == 1 %}
-            <h2>{{ menu.platillo }}</h2>
-            <img src="{{ menu.imagen.url }}" height="100px">
-            <br>
-        {% endif %}
-    {% endfor %}
-    <hr>
-    <h1>Principales</h1>
-    {% for menu in object_list %}
-        {% if menu.categoria_comida.id == 5 %}
-            <h2>{{ menu.platillo }}</h2>
-            <img src="{{ menu.imagen.url }}" height="100px">
-            <br>
-        {% endif %}
-    {% endfor %}
+    <div class="menu">
+        <h1>Especial</h1>
+        {% for menu in object_list %}
+                {% if menu.categoria_comida.id == 4 %}
+                <h2>{{ menu.platillo }}</h2>
+                <img src="{{ menu.imagen.url }}" height="100px">
+                <br>
+            {% endif %}
+        {% endfor %}
         <hr>
-    <h1>Carnes</h1>
+        <h1>Sopa</h1>
+        {% for menu in object_list %}
+            {% if menu.categoria_comida.id == 1 %}
+                <h2>{{ menu.platillo }}</h2>
+                <img src="{{ menu.imagen.url }}" height="100px">
+                <br>
+            {% endif %}
+        {% endfor %}
+        <hr>
+        <h1>Principales</h1>
+        {% for menu in object_list %}
+            {% if menu.categoria_comida.id == 5 %}
+                <h2>{{ menu.platillo }}</h2>
+                <img src="{{ menu.imagen.url }}" height="100px">
+                <br>
+            {% endif %}
+        {% endfor %}
+            <hr>
+        <h1>Carnes</h1>
         {% for menu in object_list %}
             {% if menu.categoria_comida.id == 3 %}
                 <h2>{{ menu.platillo }}</h2>
@@ -38,8 +39,8 @@
                 <br>
             {% endif %}
         {% endfor %}
-    <hr>
-    <h1>Acompañantes</h1>
+        <hr>
+        <h1>Acompañantes</h1>
         {% for menu in object_list %}
             {% if menu.categoria_comida.id == 0 %}
                 <h2>{{ menu.platillo }}</h2>
@@ -47,8 +48,8 @@
                 <br>
             {% endif %}
         {% endfor %}
-    <hr>
-    <h1>Bebidas</h1>
+        <hr>
+        <h1>Bebidas</h1>
         {% for menu in object_list %}
             {% if menu.categoria_comida.id == 2 %}
                 <h2>{{ menu.platillo }}</h2>
@@ -56,7 +57,8 @@
                 <br>
             {% endif %}
         {% endfor %}
-    <hr>
+    </div>
+    <br>
     <table>
         <thead>
             <tr>
