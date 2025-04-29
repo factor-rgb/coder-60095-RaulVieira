@@ -5,10 +5,10 @@
         {% for message in messages %}
             <p>{{message}}</p>
         {% endfor %}
-        <h1>Bienvenido al Restarurante de Betty</h1>
+        <h1>Bienvenido al Restarurante Doña Betty</h1>
         <h2>Puedes ver Nuestro Menu en el Boton de abajo</h2>
         <a href="{% url 'core:menu' %}"><button>Menu</button></a>
-        <h2>Somos un Restaurante Con años de Antiguedad y nos Especializamos en</h2>
+        <h2>Somos un Restaurante Con años de Experiencia y nos Especializamos en</h2>
         {% for categoria in especialidades %}
             <p>{{categoria}}</p>
         {% endfor %}

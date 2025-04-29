@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-from .forms import PedidosForm, ReservacionesForm, Suerencias_ComidasForm, MenuForm, CustomAuthenticationForm, CustomUserCreationForm,UserProfileForm
-from .models import CategoriasComidas, Menu, Pedidos, Reservaciones, SugerenciasComidas
+from .forms import MenuForm, CustomAuthenticationForm, CustomUserCreationForm,UserProfileForm
+from .models import CategoriasComidas, Menu
 
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView, ListView
 from django.contrib.auth.forms import AuthenticationForm
@@ -24,25 +24,6 @@ def about(request):
 
 def confirmacion(request):
       return render(request, "core/confirmacion.html")
-
-
-class PedidoCreateView(CreateView):
-    model = Pedidos
-    form_class = PedidosForm
-    success_url = reverse_lazy('core:confirmacion')
-
-
-class ReservacionCreateView(CreateView):
-    model = Reservaciones
-    form_class = ReservacionesForm
-    success_url = reverse_lazy('core:confirmacion')
-
-
-class SugerenciaComidasCreateView(CreateView):
-    model = SugerenciasComidas
-    form_class = Suerencias_ComidasForm
-    success_url = reverse_lazy('core:confirmacion')
-
 
 class MenuListView(ListView):
     model = Menu

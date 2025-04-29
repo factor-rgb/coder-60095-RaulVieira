@@ -1,30 +1,11 @@
 from django import forms
 
 
-from .models import Pedidos, Reservaciones, SugerenciasComidas, Menu
+from .models import Menu
 
 
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
-
-
-class Suerencias_ComidasForm(forms.ModelForm):
-    class Meta:
-        model = SugerenciasComidas
-        fields = "__all__"
-
-
-class ReservacionesForm(forms.ModelForm):
-    class Meta:
-        model = Reservaciones
-        fields = "__all__"
-        widgets = {'reservacion_fecha': forms.DateInput(attrs={"type": "date"})}
-
-
-class PedidosForm(forms.ModelForm):
-    class Meta:
-        model = Pedidos
-        fields = "__all__"
 
 
 class MenuForm(forms.ModelForm):
