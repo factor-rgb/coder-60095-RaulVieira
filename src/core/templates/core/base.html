@@ -12,14 +12,13 @@
 <body>
     {% block header %}
     <header>
-        <h1>Restaurante Doña Betty</h1>
+        <img src="{% static 'bettyrestaurant.png' %}" height="280px" width="410">
         <a href="{% url 'core:index' %}"><button>Inicio</button></a>
         {% if user.is_authenticated %}
             <form action="{% url 'core:logout' %}" method="post">
                 {% csrf_token %}
                 <button type="submit">Cerrar Sesion</button>
             </form>
-            <a href="{% url 'core:profile' %}"><button>Editar Perfil</button></a>
         {% endif %}
     </header>
     {% endblock header %}
@@ -27,9 +26,8 @@
     {% endblock content %}
     {% block footer %}
     <footer>
-        <p>@copyright</p>
-        <p>Telefono: 315 xxx xxx</p>
-        <p>whassap +57 315 xxx xxx</p>
+        <p>Dirección: Autopista Medellin k.m 1.5 Parque Agroindustrial de Occidente P.H Bodega 1 local 1027</p>
+        <p>Telefono: 3006883349</p>
     </footer>
     {% endblock footer %}
 </body>

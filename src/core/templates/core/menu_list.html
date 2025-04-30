@@ -6,10 +6,18 @@
     <div class="menu">
         <h1>Especial</h1>
         {% for menu in object_list %}
-                {% if menu.categoria_comida.id == 4 %}
+            {% if menu.categoria_comida.id == 4 %}
                 <h2>{{ menu.platillo }}</h2>
                 <img src="{{ menu.imagen.url }}" height="100px">
-                <br>
+                <br><br>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'core:menu_completo' menu.id %}">
+                        <button>Ver a detalle</button></a>
+                    <a href="{% url 'core:actualizar_platillo' menu.id %}">
+                        <button>Editar</button></a>
+                    <a href="{% url 'core:eliminar_platillo' menu.id %}">
+                        <button>Eliminar</button></a>
+                {% endif %}
             {% endif %}
         {% endfor %}
         <hr>
@@ -18,7 +26,15 @@
             {% if menu.categoria_comida.id == 1 %}
                 <h2>{{ menu.platillo }}</h2>
                 <img src="{{ menu.imagen.url }}" height="100px">
-                <br>
+                <br><br>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'core:menu_completo' menu.id %}">
+                        <button>Ver a detalle</button></a>
+                    <a href="{% url 'core:actualizar_platillo' menu.id %}">
+                        <button>Editar</button></a>
+                    <a href="{% url 'core:eliminar_platillo' menu.id %}">
+                        <button>Eliminar</button></a>
+                {% endif %}
             {% endif %}
         {% endfor %}
         <hr>
@@ -27,16 +43,32 @@
             {% if menu.categoria_comida.id == 5 %}
                 <h2>{{ menu.platillo }}</h2>
                 <img src="{{ menu.imagen.url }}" height="100px">
-                <br>
+                <br><br>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'core:menu_completo' menu.id %}">
+                        <button>Ver a detalle</button></a>
+                    <a href="{% url 'core:actualizar_platillo' menu.id %}">
+                        <button>Editar</button></a>
+                    <a href="{% url 'core:eliminar_platillo' menu.id %}">
+                        <button>Eliminar</button></a>
+                {% endif %}
             {% endif %}
         {% endfor %}
-            <hr>
+        <hr>
         <h1>Carnes</h1>
         {% for menu in object_list %}
             {% if menu.categoria_comida.id == 3 %}
                 <h2>{{ menu.platillo }}</h2>
                 <img src="{{ menu.imagen.url }}" height="100px">
-                <br>
+                <br><br>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'core:menu_completo' menu.id %}">
+                        <button>Ver a detalle</button></a>
+                    <a href="{% url 'core:actualizar_platillo' menu.id %}">
+                        <button>Editar</button></a>
+                    <a href="{% url 'core:eliminar_platillo' menu.id %}">
+                        <button>Eliminar</button></a>
+                {% endif %}
             {% endif %}
         {% endfor %}
         <hr>
@@ -45,7 +77,15 @@
             {% if menu.categoria_comida.id == 0 %}
                 <h2>{{ menu.platillo }}</h2>
                 <img src="{{ menu.imagen.url }}" height="100px">
-                <br>
+                <br><br>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'core:menu_completo' menu.id %}">
+                        <button>Ver a detalle</button></a>
+                    <a href="{% url 'core:actualizar_platillo' menu.id %}">
+                        <button>Editar</button></a>
+                    <a href="{% url 'core:eliminar_platillo' menu.id %}">
+                        <button>Eliminar</button></a>
+                {% endif %}
             {% endif %}
         {% endfor %}
         <hr>
@@ -54,11 +94,19 @@
             {% if menu.categoria_comida.id == 2 %}
                 <h2>{{ menu.platillo }}</h2>
                 <img src="{{ menu.imagen.url }}" height="100px">
-                <br>
+                <br><br>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'core:menu_completo' menu.id %}">
+                        <button>Ver a detalle</button></a>
+                    <a href="{% url 'core:actualizar_platillo' menu.id %}">
+                        <button>Editar</button></a>
+                    <a href="{% url 'core:eliminar_platillo' menu.id %}">
+                        <button>Eliminar</button></a>
+                {% endif %}
             {% endif %}
         {% endfor %}
     </div>
-    <br>
+    <!--<br>
     <table>
         <thead>
             <tr>
@@ -93,5 +141,5 @@
                     </tr>
             {% endfor %}
         </tbody>
-    </table>
+    </table>-->
 {% endblock content %}

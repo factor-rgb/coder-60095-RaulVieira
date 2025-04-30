@@ -3,11 +3,17 @@
 {% block content %}
     <div>
         {% for message in messages %}
+            <br>
             <p>{{message}}</p>
+            <br>
         {% endfor %}
         <h1>Bienvenido al Restarurante Doña Betty</h1>
+        <br><br>
+        <h2>Atendemos de Lunes a Viernes 8am - 3pm</h2>
+        <br><br>
         <h2>Puedes ver Nuestro Menu en el Boton de abajo</h2>
         <a href="{% url 'core:menu' %}"><button>Menu</button></a>
+        <br><br>
         <h2>Somos un Restaurante Con años de Experiencia y nos Especializamos en</h2>
         {% for categoria in especialidades %}
             <p>{{categoria}}</p>
