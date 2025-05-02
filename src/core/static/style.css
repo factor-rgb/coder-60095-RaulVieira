@@ -33,7 +33,7 @@ hr {
     margin-right: 0px;
     margin-left: 0px;
     border-style: groove;
-    border-color: darkred;
+    border-color: crimson;
     border-width: 2px;
 }
 
@@ -77,24 +77,6 @@ div p {
     font-size: 35px;
 }
 
-table {
-    margin: 0 auto;
-}
-
-table th {
-    font-size: 1.5rem;
-}
-
-table th, td {
-    border-radius: 5px;
-    border-style: solid;
-    border-color: blue;
-}
-
-table td {
-    font-size: 1.5rem;
-}
-
 .menu {
     background-color: burlywood;
     border: 4px;
@@ -108,5 +90,8 @@ table td {
         background-image: url(mesa.webp);
         background-size: cover;
         height: 370px;
+    }
+    header img {
+        max-width: 20rem;
     }
 }

@@ -10,6 +10,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib import messages
 from django.forms import BaseModelForm
 from django.urls import reverse_lazy
+from django.http import JsonResponse
 
 
 def index(request):
@@ -28,11 +29,19 @@ def confirmacion(request):
 class MenuListView(ListView):
     model = Menu
 
-    def get_queryset(self):
-        busqueda = self.request.GET.get('busqueda')
-        if busqueda:
-            return Menu.objects.filter(platillo__icontains=busqueda)
-        return Menu.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['food_diches'] = {'Especial': Menu.objects.filter(categoria_comida=4),
+                                    'Sopa': Menu.objects.filter(categoria_comida=1),
+                                    'Acompañantes': Menu.objects.filter(categoria_comida=0),
+                                    'Carnes': Menu.objects.filter(categoria_comida=3),
+                                    'Principios': Menu.objects.filter(categoria_comida=5),
+                                    'Bebidas': Menu.objects.filter(categoria_comida=2),
+                                    }
+        return context
+
+    def render(self, request, template, context, http_response_class, **http_response_kwargs):
+        return JsonResponse(context['food_diches'])
 
 
 class MenuCreateView(CreateView):
@@ -64,7 +73,7 @@ class CustomLoginView(LoginView):
     def form_valid(self, form: AuthenticationForm):
         usuario = form.get_user()
         messages.success(
-            self.request, f'Inicio de sesión exitoso ¡Bienvenido {usuario.username}!'
+            self.request, f'Inicio de Sesión Exitoso ¡Bienvenido {usuario.username}!'
         )
         return super().form_valid(form)
 
