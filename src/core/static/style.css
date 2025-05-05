@@ -33,7 +33,7 @@ hr {
     margin-right: 0px;
     margin-left: 0px;
     border-style: groove;
-    border-color: crimson;
+    border-color: turquoise;
     border-width: 2px;
 }
 
@@ -43,12 +43,6 @@ footer {
     font-size: 20px;
     background-color: darkslategray;
     color: white;
-    display: grid;
-
-}
-
-footer p {
-    height: 10px;
 }
 
 form input {
@@ -78,9 +72,9 @@ div p {
 }
 
 .menu {
-    background-color: burlywood;
+    background-color: lightpink;
     border: 4px;
-    border-color: crimson;
+    border-color: turquoise;
     border-radius: 14px;
     border-style: groove;
 }
@@ -93,5 +87,13 @@ div p {
     }
     header img {
         max-width: 20rem;
+    }
+
+    footer {
+        margin-top: 30px;
+        height: 220px;
+        font-size: 20px;
+        background-color: darkslategray;
+        color: white;
     }
 }

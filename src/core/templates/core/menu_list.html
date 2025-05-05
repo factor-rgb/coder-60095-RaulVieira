@@ -1,28 +1,32 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-    {{ cantidad }}
+    <br>
     <h1>Menu</h1>
     <br>
     {% if user.is_authenticated %}
         <a href="{% url 'core:agregar_platillo' %}">
-        <button>Añadir un Nuevo Platillo</button></a>
+            <button>Añadir un Nuevo Platillo</button></a>
         <br><br><br>
     {% endif %}
     <div class="menu">
         {% for category,food in food_diches.items %}
             <h1>{{ category }}</h1>
             {% for menu in food %}
-                <h2>{{ menu.platillo }}</h2>
+                <h2>{{ menu.platillo.capitalize }}</h2>
                 <img src="{{ menu.imagen.url }}" height="100px">
+                {% if menu.categoria_comida.id == 4 %}
+                    <h2 style="margin-bottom: 0px;">{{ menu.precio }}</h2>
+                {% endif %}
                 <br><br>
                 {% if user.is_authenticated %}
-                <a href="{% url 'core:menu_completo' menu.id %}">
-                    <button>Ver a Detalle</button></a>
-                <a href="{% url 'core:actualizar_platillo' menu.id %}">
-                    <button>Editar</button></a>
-                <a href="{% url 'core:eliminar_platillo' menu.id %}">
-                    <button>Eliminar</button></a>
+                    <a href="{% url 'core:menu_completo' menu.id %}">
+                        <button>Ver a Detalle</button></a>
+                    <a href="{% url 'core:actualizar_platillo' menu.id %}">
+                        <button>Editar</button></a>
+                    <a href="{% url 'core:eliminar_platillo' menu.id %}">
+                        <button>Eliminar</button></a>
+                    <br><br>
                 {% endif %}
             {% endfor %}
             {% if category != "Bebidas" %}
