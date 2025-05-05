@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .forms import MenuForm, CustomAuthenticationForm, CustomUserCreationForm,UserProfileForm
-from .models import CategoriasComidas, Menu
+from .models import Foodscategories, Menu
 
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView, ListView
 from django.contrib.auth.forms import AuthenticationForm
@@ -14,7 +14,7 @@ from django.http import JsonResponse
 
 
 def index(request):
-      query = CategoriasComidas.objects.all()
+      query = Foodscategories.objects.all()
       context = {"especialidades": query}
       return render(request, "core/index.html", context)
 
@@ -31,12 +31,12 @@ class MenuListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['food_diches'] = {'Especial': Menu.objects.filter(categoria_comida=4),
-                                    'Sopa': Menu.objects.filter(categoria_comida=1),
-                                    'Acompañantes': Menu.objects.filter(categoria_comida=0),
-                                    'Carnes': Menu.objects.filter(categoria_comida=3),
-                                    'Principios': Menu.objects.filter(categoria_comida=5),
-                                    'Bebidas': Menu.objects.filter(categoria_comida=2),
+        context['food_diches'] = {'Especial': Menu.objects.filter(category=4),
+                                    'Sopa': Menu.objects.filter(category=1),
+                                    'Acompañantes': Menu.objects.filter(category=0),
+                                    'Carnes': Menu.objects.filter(category=3),
+                                    'Principios': Menu.objects.filter(category=5),
+                                    'Bebidas': Menu.objects.filter(category=2),
                                     }
         return context
 

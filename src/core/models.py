@@ -1,18 +1,18 @@
 from django.db import models
 
 
-class CategoriasComidas(models.Model):
-    categoria = models.CharField(max_length=255, unique=True)
+class Foodscategories(models.Model):
+    category_name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
-        return self.categoria
+        return self.category_name
 
 
 class Menu(models.Model):
-    platillo = models.CharField(max_length=255, unique=True)
-    categoria_comida = models.ForeignKey(CategoriasComidas, on_delete=models.SET_NULL, null=True)
-    imagen = models.ImageField(upload_to='imagenes_platillos', blank=True, null=True)
-    precio = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    food_name = models.CharField(max_length=255, unique=True)
+    category = models.ForeignKey(Foodscategories, on_delete=models.SET_NULL, null=True)
+    image = models.ImageField(upload_to='imagenes_platillos', blank=True, null=True)
+    price = models.DecimalField(max_digits=5, decimal_places=3, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.platillo} ${self.precio}"
+        return f"{self.food_name} ${self.category}"

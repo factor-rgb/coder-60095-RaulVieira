@@ -13,10 +13,10 @@
         {% for category,food in food_diches.items %}
             <h1>{{ category }}</h1>
             {% for menu in food %}
-                <h2>{{ menu.platillo.capitalize }}</h2>
-                <img src="{{ menu.imagen.url }}" height="100px">
-                {% if menu.categoria_comida.id == 4 %}
-                    <h2 style="margin-bottom: 0px;">{{ menu.precio }}</h2>
+                <h2>{{ menu.food_name.capitalize }}</h2>
+                <img src="{{ menu.image.url }}" height="100px">
+                {% if menu.category.id == 4 %}
+                    <h2 style="margin-bottom: 0px;">{{ menu.price }}</h2>
                 {% endif %}
                 <br><br>
                 {% if user.is_authenticated %}

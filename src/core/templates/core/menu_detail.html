@@ -3,11 +3,11 @@
 {% block content %}
     <h1>Datos del Platillo</h1>
     <br>
-    <h3>Nombre: {{ object.platillo }}</h3>
-    <h3>Categoria: {{ object.categoria_comida }}</h3>
-    <h3>Precio: {{ object.precio }}</h3>
-    {% if object.imagen %}
-    <img src="{{ object.imagen.url }}" height="300px">
+    <h3>Nombre: {{ object.food_name }}</h3>
+    <h3>Categoria: {{ object.category }}</h3>
+    <h3>Precio: {{ object.price }}</h3>
+    {% if object.image %}
+    <img src="{{ object.image.url }}" height="300px">
     <br>
     {% else %}
         <p>Sin Imagen</p>
