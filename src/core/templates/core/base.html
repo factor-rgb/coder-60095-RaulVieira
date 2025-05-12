@@ -17,7 +17,6 @@
             </div>
             <a href="{% url 'core:index' %}"><button>Inicio</button></a>
             {% if user.is_authenticated %}
-                <br><br>
                 <form action="{% url 'core:logout' %}" method="post">
                     {% csrf_token %}
                     <button type="submit">Cerrar Sesion</button>
@@ -32,9 +31,9 @@
     {% block footer %}
         <footer>
             <p style="padding-top: 10px;">Dirección: Autopista Medellin k.m 1.5 Parque Agroindustrial de Occidente P.H Bodega 1 local 1027</p>
-            <p>Telefonos:</p>
-            <p>3006883349</p>
-            <p>3107803793</p>
+            <p style="margin-bottom: 6px;">Telefonos:</p>
+            <p style="margin-top: 1px; margin-bottom: 1px;">3006883349</p>
+            <p style="margin-top: 1px;">3107803793</p>
         </footer>
     {% endblock footer %}
 </body>

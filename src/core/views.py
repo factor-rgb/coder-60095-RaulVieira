@@ -29,15 +29,24 @@ def confirmacion(request):
 class MenuListView(ListView):
     model = Menu
 
+    def get_menu(self):
+        search = {  'Especial': 4,
+                    'Sopa': 1, 
+                    'Principios': 5, 
+                    'Carnes': 3, 
+                    'Acompañantes': 0, 
+                    'Bebidas': 2,
+                    }
+        menu_data = {}
+        for category, menu in search.items():
+            data = Menu.objects.get(category=menu)
+            data.food_name = data.food_name.split(',')
+            menu_data[category]= data
+        return menu_data
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['food_diches'] = {'Especial': Menu.objects.filter(category=4),
-                                    'Sopa': Menu.objects.filter(category=1),
-                                    'Acompañantes': Menu.objects.filter(category=0),
-                                    'Carnes': Menu.objects.filter(category=3),
-                                    'Principios': Menu.objects.filter(category=5),
-                                    'Bebidas': Menu.objects.filter(category=2),
-                                    }
+        context['food_diches'] = self.get_menu()
         return context
 
     def render(self, request, template, context, http_response_class, **http_response_kwargs):

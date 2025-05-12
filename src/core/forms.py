@@ -11,7 +11,12 @@ from django.contrib.auth.models import User
 class MenuForm(forms.ModelForm):
     class Meta:
         model = Menu
-        fields = "__all__"
+        fields = ['food_name', 'price', 'image']
+        labels = {
+            'food_name': 'Comidas (Separadas por Comas)',
+            'price': 'Precio\n(Solo Para el Especial)',
+            'image': 'Imagen en el Menu'
+        }
 
 
 class CustomAuthenticationForm(AuthenticationForm):

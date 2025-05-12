@@ -2,37 +2,25 @@
 
 {% block content %}
     <br>
-    <h1>Menu</h1>
+    <h1>Menu Del Dia</h1>
     <br>
-    {% if user.is_authenticated %}
-        <a href="{% url 'core:agregar_platillo' %}">
-            <button>Añadir un Nuevo Platillo</button></a>
-        <br><br><br>
-    {% endif %}
-    <div class="menu">
-        {% for category,food in food_diches.items %}
-            <h1>{{ category }}</h1>
-            {% for menu in food %}
-                <h2>{{ menu.food_name.capitalize }}</h2>
-                <img src="{{ menu.image.url }}" height="100px">
-                {% if menu.category.id == 4 %}
-                    <h2 style="margin-bottom: 0px;">{{ menu.price }}</h2>
-                {% endif %}
-                <br><br>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'core:menu_completo' menu.id %}">
-                        <button>Ver a Detalle</button></a>
-                    <a href="{% url 'core:actualizar_platillo' menu.id %}">
-                        <button>Editar</button></a>
-                    <a href="{% url 'core:eliminar_platillo' menu.id %}">
-                        <button>Eliminar</button></a>
-                    <br><br>
+    {% for category,food in food_diches.items %}
+        <div class="menu">
+            <h1 style="text-decoration: underline turquoise;">{{ category }}</h1>
+            {% for menu in food.food_name %}
+                <h2 style="padding-bottom: 1px;">{{ menu.strip }}</h2>
+                {% if food.category.id == 4 %}
+                    <h2 style="margin-bottom: 0px;">{{ food.price }}</h2>
+                    <br>
                 {% endif %}
             {% endfor %}
-            {% if category != "Bebidas" %}
-                <hr>
+            <img src="{{ food.image.url }}" height="170px">
+            <br><br>
+            {% if user.is_authenticated %}
+                <a href="{% url 'core:actualizar_platillo' food.id %}">
+                    <button>Editar</button></a>
+                <br><br>
             {% endif %}
-        {% endfor %}
-    </div>
-    <br>
+        </div>
+    {% endfor %}
 {% endblock content %}

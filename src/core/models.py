@@ -6,6 +6,10 @@ class Foodscategories(models.Model):
 
     def __str__(self):
         return self.category_name
+    
+    class Meta:
+        verbose_name = "categoria de comida"
+        verbose_name_plural = "categorias de comidas"
 
 
 class Menu(models.Model):
