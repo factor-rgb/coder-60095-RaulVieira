@@ -40,7 +40,8 @@ class MenuListView(ListView):
         menu_data = {}
         for category, menu in search.items():
             data = Menu.objects.get(category=menu)
-            data.food_name = data.food_name.split(',')
+            if data.food_name:
+                data.food_name = data.food_name.split(',')
             menu_data[category]= data
         return menu_data
 

@@ -72,6 +72,7 @@ div p {
 }
 
 .menu {
+    width: 25rem;
     background-color: lightpink;
     border: 4px;
     border-color: turquoise;
@@ -99,6 +100,7 @@ div p {
     }
 
     .menu {
+    width: 97%;
     background-color: lightpink;
     border: 4px;
     border-color: turquoise;

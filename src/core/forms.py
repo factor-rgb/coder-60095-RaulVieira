@@ -14,7 +14,7 @@ class MenuForm(forms.ModelForm):
         fields = ['food_name', 'price', 'image']
         labels = {
             'food_name': 'Comidas (Separadas por Comas)',
-            'price': 'Precio\n(Solo Para el Especial)',
+            'price': 'Precio (Solo Para el Especial)',
             'image': 'Imagen en el Menu'
         }
 

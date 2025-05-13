@@ -1,26 +1,38 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+    <h1>Puedes Hacer Tu Pedido a Traves de Nuestro Grupo de Whatsapp</h1>
+    <a href="https//chat.whatsapp.com/Bf4zPhgf9Kh2SWD8tlw"><button>Ir a Whastapp</button></a>
     <br>
-    <h1>Menu Del Dia</h1>
+    <h1 style="text-decoration: underline turquoise;">Menu Del Dia</h1>
     <br>
-    {% for category,food in food_diches.items %}
-        <div class="menu">
-            <h1 style="text-decoration: underline turquoise;">{{ category }}</h1>
-            {% for menu in food.food_name %}
-                <h2 style="padding-bottom: 1px;">{{ menu.strip }}</h2>
-                {% if food.category.id == 4 %}
-                    <h2 style="margin-bottom: 0px;">{{ food.price }}</h2>
-                    <br>
+    <div style="display: flexbox; justify-items: center;">
+        {% for category,food in food_diches.items %}
+            {% if food.food_name %}
+                <div class="menu">
+                    <h1 style="text-decoration: underline turquoise;">{{ category }}</h1>
+                    {% for menu in food.food_name %}
+                        <h2 style="padding-bottom: 1px;">{{ menu.strip.capitalize }}</h2>
+                        {% if food.category.id == 4 %}
+                            <h2 style="margin-bottom: 0px;">{{ food.price }}</h2>
+                            <br>
+                        {% endif %}
+                    {% endfor %}
+                    <img src="{{ food.image.url }}" height="170px">
+                    <br><br>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'core:actualizar_platillo' food.id %}">
+                            <button>Editar</button></a>
+                        <br><br>
+                    {% endif %}
+                </div>
+            {% else %}
+                {% if user.is_authenticated %}
+                    <a href="{% url 'core:actualizar_platillo' food.id %}">
+                        <button>Poner {{ category }}</button></a>
+                    <br><br><br>
                 {% endif %}
-            {% endfor %}
-            <img src="{{ food.image.url }}" height="170px">
-            <br><br>
-            {% if user.is_authenticated %}
-                <a href="{% url 'core:actualizar_platillo' food.id %}">
-                    <button>Editar</button></a>
-                <br><br>
             {% endif %}
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock content %}

@@ -13,7 +13,7 @@ class Foodscategories(models.Model):
 
 
 class Menu(models.Model):
-    food_name = models.CharField(max_length=255, unique=True)
+    food_name = models.CharField(max_length=255, unique=True, blank=True, null=True)
     category = models.ForeignKey(Foodscategories, on_delete=models.SET_NULL, null=True)
     image = models.ImageField(upload_to='imagenes_platillos', blank=True, null=True)
     price = models.DecimalField(max_digits=5, decimal_places=3, blank=True, null=True)
