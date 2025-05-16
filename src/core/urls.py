@@ -7,7 +7,6 @@ app_name = "core"
 urlpatterns = [
     path("", views.index, name="index"),
     path("betty's/confirmacion/", views.confirmacion, name="confirmacion"),
-    path("betty's/about/", views.about, name='about'),
     path("betty's/menu/", views.MenuListView.as_view(), name="menu"),
     path("betty's/menu/agregar_platillo/", views.MenuCreateView.as_view(), name="agregar_platillo"),
     path("betty's/menu/actualizar_platillo/<int:pk>", views.MenuUpdateView.as_view(), name="actualizar_platillo"),

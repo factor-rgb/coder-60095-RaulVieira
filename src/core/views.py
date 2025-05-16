@@ -18,13 +18,9 @@ def index(request):
       context = {"especialidades": query}
       return render(request, "core/index.html", context)
 
-
-def about(request):
-      return render(request, "core/about.html")
-
-
 def confirmacion(request):
       return render(request, "core/confirmacion.html")
+
 
 class MenuListView(ListView):
     model = Menu

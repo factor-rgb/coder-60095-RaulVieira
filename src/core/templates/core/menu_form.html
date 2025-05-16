@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-    <h1 style="text-decoration: underline blue;">Editar Menu</h1>
+    <h1 style="text-decoration: underline blue;">Editar {{ object.category | title }}</h1>
     <h2>Dejar Comidas Vacio Para Quitarlo del Menu</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
